@@ -71,7 +71,7 @@
 
     <string name="hiv_return_to_previous_page">Return to all hiv clients</string>
     <string name="hiv_return_to_index_contacts_page">Return to Index Contacts List</string>
-    <string name="record_hiv_followup">Record hiv follow-up visit</string>
+    <string name="record_hiv_followup">Record CBHS follow-up visit</string>
     <string name="record_index_contact_followup">Record HIV Index Contact follow-up visit</string>
     <string name="hiv_visit_done">Hiv follow-up visit done</string>
     <string name="index_contact_visit_done">Index Contact testing follow-up done</string>
