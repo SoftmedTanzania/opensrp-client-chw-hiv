@@ -32,6 +32,9 @@ data class HivMemberObject(val client: CommonPersonObjectClient?) : Serializable
     var otherPhoneNumber: String? = client?.columnmaps?.get(DBConstants.Key.OTHER_PHONE_NUMBER)
     var ctcNumber: String? = client?.columnmaps?.get(DBConstants.Key.CTC_NUMBER)
     var cbhsNumber: String? = client?.columnmaps?.get(DBConstants.Key.CBHS_NUMBER)
+    var tbNumber: String? = client?.columnmaps?.get(DBConstants.Key.TB_NUMBER)
+    var matNumber: String? = client?.columnmaps?.get(DBConstants.Key.MAT_NUMBER)
+    var rchNumber: String? = client?.columnmaps?.get(DBConstants.Key.RCH_NUMBER)
     var clientHivStatusDuringRegistration: String? = client?.columnmaps?.get(DBConstants.Key.CLIENT_HIV_STATUS_DURING_REGISTRATION)
     var clientHivStatusAfterTesting: String? = client?.columnmaps?.get(DBConstants.Key.CLIENT_HIV_STATUS_AFTER_TESTING)
     var hivRegistrationDate: Date? = null

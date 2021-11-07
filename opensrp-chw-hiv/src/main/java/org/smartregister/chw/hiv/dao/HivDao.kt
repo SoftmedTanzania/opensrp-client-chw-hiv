@@ -45,6 +45,12 @@ object HivDao : AbstractDao() {
                 getCursorValue(cursor, DBConstants.Key.CTC_NUMBER, "")
             memberObject.cbhsNumber =
                 getCursorValue(cursor, DBConstants.Key.CBHS_NUMBER, "")
+            memberObject.tbNumber =
+                getCursorValue(cursor, DBConstants.Key.TB_NUMBER, "")
+            memberObject.matNumber =
+                getCursorValue(cursor, DBConstants.Key.MAT_NUMBER, "")
+            memberObject.rchNumber =
+                getCursorValue(cursor, DBConstants.Key.RCH_NUMBER, "")
             memberObject.clientHivStatusDuringRegistration =
                 getCursorValue(
                     cursor,
