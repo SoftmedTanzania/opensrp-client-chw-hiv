@@ -194,4 +194,22 @@ object HivIndexDao : AbstractDao() {
         return if (res == null || res.size == 0) null else res
     }
 
+    @JvmStatic
+    fun isReferralSent(baseEntityID: String):Boolean {
+        val sql =
+            """select count(refer_to_chw) count
+               from ec_hiv_index_hf
+               where base_entity_id = '${baseEntityID}'
+               and is_closed = 0
+            """
+
+
+        val dataMap = DataMap { cursor: Cursor? -> getCursorIntValue(cursor, "count") }
+        val res = readData(sql, dataMap)
+
+        return if (res == null || res.size != 1) false else res[0]!! > 0
+
+    }
+
+
 }
