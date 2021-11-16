@@ -64,6 +64,7 @@ open class BaseHivProfileActivity : BaseProfileActivity(),
     private var tvLocation: TextView? = null
     private var tvUniqueID: TextView? = null
     protected var tvCbhsNumber: TextView? = null
+    protected var tvCtcNumber: TextView? = null
     protected var tvStatus: TextView? = null
     private var overDueRow: View? = null
     private var familyRow: View? = null
@@ -104,6 +105,7 @@ open class BaseHivProfileActivity : BaseProfileActivity(),
         tvUniqueID = findViewById(R.id.textview_unique_id)
         tvStatus = findViewById(R.id.textview_status)
         tvCbhsNumber = findViewById(R.id.textview_cbhs_number)
+        tvCtcNumber = findViewById(R.id.textview_ctc_number)
         recordVisitStatusBarLayout =
                 findViewById(R.id.record_visit_status_bar_layout)
         recordFollowUpVisitLayout = findViewById(R.id.record_recurring_layout)
@@ -319,8 +321,17 @@ open class BaseHivProfileActivity : BaseProfileActivity(),
         tvLocation!!.text = hivMemberObject.address
         tvUniqueID!!.text = hivMemberObject.uniqueId
 
-        if (!hivMemberObject.cbhsNumber.isNullOrEmpty())
+        if (!hivMemberObject.cbhsNumber.isNullOrEmpty()){
+            tvCbhsNumber!!.visibility = View.VISIBLE
             tvCbhsNumber!!.text = "CBHS:" + hivMemberObject.cbhsNumber
+        }
+
+
+        if (!hivMemberObject.ctcNumber.isNullOrEmpty()){
+            tvCtcNumber!!.visibility = View.VISIBLE
+            tvCtcNumber!!.text = "CTC: " + hivMemberObject.ctcNumber
+        }
+
 
         imageRenderHelper.refreshProfileImage(
                 hivMemberObject.baseEntityId,
