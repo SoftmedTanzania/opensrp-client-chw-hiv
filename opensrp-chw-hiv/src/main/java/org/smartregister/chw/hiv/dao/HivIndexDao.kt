@@ -194,6 +194,9 @@ object HivIndexDao : AbstractDao() {
         return if (res == null || res.size == 0) null else res
     }
 
+    /**
+     * Checks whether the user has been referred to the chw for followup
+     * */
     @JvmStatic
     fun isReferralSent(baseEntityID: String):Boolean {
         val sql =
