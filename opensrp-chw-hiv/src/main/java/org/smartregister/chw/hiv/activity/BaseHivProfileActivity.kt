@@ -321,11 +321,18 @@ open class BaseHivProfileActivity : BaseProfileActivity(),
         tvLocation!!.text = hivMemberObject.address
         tvUniqueID!!.text = hivMemberObject.uniqueId
 
-        if (!hivMemberObject.cbhsNumber.isNullOrEmpty())
+        if (!hivMemberObject.cbhsNumber.isNullOrEmpty()){
+            tvCbhsNumber!!.visibility = View.VISIBLE
             tvCbhsNumber!!.text = "CBHS:" + hivMemberObject.cbhsNumber
+        }
 
-        if (!hivMemberObject.ctcNumber.isNullOrEmpty())
+
+        if (!hivMemberObject.ctcNumber.isNullOrEmpty()){
+            tvCtcNumber!!.visibility = View.VISIBLE
             tvCtcNumber!!.text = "CTC: " + hivMemberObject.ctcNumber
+        }
+
+
         imageRenderHelper.refreshProfileImage(
                 hivMemberObject.baseEntityId,
                 profileImageView,
