@@ -138,5 +138,6 @@
     <string name="index_contact_biological_father">Biological Father</string>
     <string name="index_contact_biological_child_under_15">Mtoto wa kuzaa chini ya miaka 15</string>
     <string name="index_contact_siblings_under_15">Ndugu wa damu chini ya miaka 15</string>
+    <string name="cbhs_follow_up_visit">Ufatiliaji wa VVU</string>
 
 </resources>
