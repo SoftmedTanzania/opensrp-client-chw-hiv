@@ -93,7 +93,7 @@
     <string name="hiv_visit_day_overdue">%ssiku zilizopitiliza toka hudhurio lililotakiwa</string>
     <string name="hiv_visit_day_overdue_today">leo ndio siku ya hudhurio</string>
     <string name="successful_registration">Umefanyikiwa kumsajili mteja wa VVU</string>
-    <string name="successful_visit">Umefanukiwa kumtembelea mteja wa VVU</string>
+    <string name="successful_visit">Umefanikiwa kumtembelea mteja wa VVU</string>
     <string name="form_not_saved">Fomu haijahifadhiwa</string>
 
     <string name="phone_not_provided">Numba ya simu haijatolewa</string>
@@ -139,5 +139,7 @@
     <string name="index_contact_biological_child_under_15">Mtoto wa kuzaa chini ya miaka 15</string>
     <string name="index_contact_siblings_under_15">Ndugu wa damu chini ya miaka 15</string>
     <string name="cbhs_follow_up_visit">Ufatiliaji wa VVU</string>
+    <string name="client_followup_status_deceased">Amefariki</string>
+    <string name="client_followup_status_qualified_from_service">Amemaliza huduma</string>
 
 </resources>

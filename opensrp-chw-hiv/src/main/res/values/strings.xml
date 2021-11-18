@@ -77,7 +77,7 @@
     <string name="index_contact_visit_done">Index Contact testing follow-up done</string>
     <string name="hiv_visit_edit">Edit</string>
     <string name="last_visit">Last visit</string>
-    <string name="view_hiv_registration">View HIV registration</string>
+    <string name="view_hiv_registration">View CBHS registration</string>
     <string name="last_visit_n_days_ago">Last visit %1$s ago</string>
     <string name="less_than_twenty_four">less than 24 hrs</string>
     <string name="hiv_upcoming_visit"><![CDATA[%1$s <font color=#7f7f7f>upcoming (%2$s)</font></b>]]></string>
@@ -92,15 +92,15 @@
     <string name="empty_value">None</string>
     <string name="save">Save</string>
 
-    <string name="hiv_follow_up_visit">HIV Follow Up Visit</string>
+    <string name="hiv_follow_up_visit">CBHS Next Follow Up Visit</string>
     <string name="cbhs_follow_up_visit">CBHS Next Followup Visit</string>
     <string name="hiv_visit_day_due">%s DAYS DUE</string>
     <string name="hiv_visit_day_due_today">DUE TODAY</string>
     <string name="hiv_visit_day_next_due">Next Due %s </string>
     <string name="hiv_visit_day_overdue">%s DAYS OVERDUE</string>
     <string name="hiv_visit_day_overdue_today">OVERDUE TODAY</string>
-    <string name="successful_hiv_registration">Client Registered to HIV successfully</string>
-    <string name="successful_visit">Client HIV visit saved successfully</string>
+    <string name="successful_hiv_registration">Client registered successfully</string>
+    <string name="successful_visit">Client CBHS visit saved successfully</string>
     <string name="form_not_saved">Form was not saved</string>
 
     <string name="phone_not_provided">Phone not provided</string>
