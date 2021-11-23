@@ -235,9 +235,14 @@ open class BaseIndexContactProfileActivity : BaseProfileActivity(),
                 tvIndexNameTitle.visibility = View.VISIBLE
                 tvIndexName.visibility = View.VISIBLE
 
+                val hivMemberAge = Period(
+                    DateTime(hivMemberObject.age),
+                    DateTime()
+                ).years
+
                 tvIndexName.text = String.format(
                     Locale.getDefault(), "%s %s %s, %d", hivMemberObject.firstName,
-                    hivMemberObject.middleName, hivMemberObject.lastName, age
+                    hivMemberObject.middleName, hivMemberObject.lastName, hivMemberAge
                 )
             }
         }
