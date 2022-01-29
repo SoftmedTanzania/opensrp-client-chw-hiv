@@ -21,6 +21,7 @@ import com.google.gson.Gson
 import org.apache.commons.lang3.StringUtils
 import org.json.JSONObject
 import org.koin.core.KoinComponent
+import org.opensrp.api.constants.Gender
 import org.smartregister.chw.anc.domain.MemberObject
 import org.smartregister.chw.hiv.HivLibrary
 import org.smartregister.chw.hiv.R
@@ -190,6 +191,15 @@ object HivUtil : KoinComponent {
         res.middleName = memberObject.middleName
         res.dob = memberObject.age
         return res
+    }
+
+    fun getGenderTranslated(context: Context, gender: String): String? {
+        if (gender.equals(Gender.MALE.toString(), ignoreCase = true)) {
+            return context.resources.getString(R.string.sex_male)
+        } else if (gender.equals(Gender.FEMALE.toString(), ignoreCase = true)) {
+            return context.resources.getString(R.string.sex_female)
+        }
+        return ""
     }
 
 }
