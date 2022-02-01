@@ -23,6 +23,7 @@ import org.smartregister.chw.hiv.domain.HivMemberObject
 import org.smartregister.chw.hiv.interactor.BaseHivProfileInteractor
 import org.smartregister.chw.hiv.presenter.BaseHivProfilePresenter
 import org.smartregister.chw.hiv.util.Constants
+import org.smartregister.chw.hiv.util.HivUtil
 import org.smartregister.chw.hiv.util.HivUtil.fromHtml
 import org.smartregister.chw.hiv.util.HivUtil.getMemberProfileImageResourceIDentifier
 import org.smartregister.domain.AlertStatus
@@ -317,7 +318,8 @@ open class BaseHivProfileActivity : BaseProfileActivity(),
                 Locale.getDefault(), "%s %s %s, %d", hivMemberObject.firstName,
                 hivMemberObject.middleName, hivMemberObject.lastName, age
         )
-        tvGender!!.text = hivMemberObject.gender
+
+        tvGender!!.text = hivMemberObject.gender?.let { HivUtil.getGenderTranslated(this, it) }
         tvLocation!!.text = hivMemberObject.address
         tvUniqueID!!.text = hivMemberObject.uniqueId
 
