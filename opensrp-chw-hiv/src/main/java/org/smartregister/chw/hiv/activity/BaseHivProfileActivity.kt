@@ -318,7 +318,7 @@ open class BaseHivProfileActivity : BaseProfileActivity(),
                 Locale.getDefault(), "%s %s %s, %d", hivMemberObject.firstName,
                 hivMemberObject.middleName, hivMemberObject.lastName, age
         )
-       // tvGender!!.text = HivUtil.getGenderTranslated(hivMemberObject.gender)
+
         tvGender!!.text = hivMemberObject.gender?.let { HivUtil.getGenderTranslated(this, it) }
         tvLocation!!.text = hivMemberObject.address
         tvUniqueID!!.text = hivMemberObject.uniqueId
