@@ -23,7 +23,7 @@ object Constants {
         const val HIV_INDEX_CONTACT_COMMUNITY_FOLLOWUP = "HIV Index Contact Community Followup Referral"
         const val HIV_INDEX_CONTACT_TESTING_FOLLOWUP = "HIV Index Contact Testing Followup"
         const val HIV_COMMUNITY_FOLLOWUP_FEEDBACK = "HIV Community Followup Feedback"
-        const val FOLLOW_UP_VISIT = "HIV Followup"
+        const val FOLLOW_UP_VISIT = "CBHS Followup"
         const val REFERRAL_FOLLOW_UP_VISIT = "Followup Visit"
     }
 
