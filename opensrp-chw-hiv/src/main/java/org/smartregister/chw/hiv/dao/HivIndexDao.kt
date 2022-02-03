@@ -47,7 +47,8 @@ object HivIndexDao : AbstractDao() {
 
             memberObject.contactClientNotificationMethod =
                 getCursorValue(cursor, DBConstants.Key.HOW_TO_NOTIFY_CONTACT_CLIENT, "")
-
+            memberObject.placeWhereTestWasConducted =
+                getCursorValue(cursor, DBConstants.Key.PLACE_WHERE_TEST_WAS_CONDUCTED, "")
             memberObject.hivStatus =
                 getCursorValue(cursor, DBConstants.Key.HIV_STATUS, "")
 

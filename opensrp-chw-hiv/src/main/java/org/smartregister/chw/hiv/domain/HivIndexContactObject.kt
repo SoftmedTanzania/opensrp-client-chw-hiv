@@ -35,6 +35,7 @@ data class HivIndexContactObject(val client: CommonPersonObjectClient?) : Serial
     var testResults: String? = client?.columnmaps?.get(DBConstants.Key.TEST_RESULTS)
     var hivClientId: String? = client?.columnmaps?.get(DBConstants.Key.HIV_CLIENT_ID)
     var relationship: String? = client?.columnmaps?.get(DBConstants.Key.RELATIONSHIP)
+    var placeWhereTestWasConducted: String? = client?.columnmaps?.get(DBConstants.Key.PLACE_WHERE_TEST_WAS_CONDUCTED)
 
     var hivTestEligibility: Boolean? = client?.columnmaps?.get(DBConstants.Key.HIV_TEST_ELIGIBILITY) == "true"
     var referToChw: Boolean? = client?.columnmaps?.get(DBConstants.Key.REFER_TO_CHW) == "yes"
