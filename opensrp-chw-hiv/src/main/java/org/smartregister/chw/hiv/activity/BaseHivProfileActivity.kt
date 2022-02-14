@@ -314,6 +314,10 @@ open class BaseHivProfileActivity : BaseProfileActivity(),
                 DateTime(hivMemberObject!!.age),
                 DateTime()
         ).years
+
+        val dateFormat =
+                SimpleDateFormat("EEE dd MMM yyyy HH:mm:ss", Locale.getDefault())
+
         tvName!!.text = String.format(
                 Locale.getDefault(), "%s %s %s, %d", hivMemberObject.firstName,
                 hivMemberObject.middleName, hivMemberObject.lastName, age
@@ -340,10 +344,11 @@ open class BaseHivProfileActivity : BaseProfileActivity(),
                 profileImageView,
                 getMemberProfileImageResourceIDentifier()
         )
-        tvHivRow!!.text = String.format(
+        tvHivRow!!.text = fromHtml(
+                String.format(
                 getString(R.string.hiv_client_registered_text),
                 getString(R.string.hiv_on),
-                hivMemberObject.hivRegistrationDate
+                dateFormat.format(hivMemberObject.hivRegistrationDate))
         )
         if (StringUtils.isNotBlank(hivMemberObject.familyHead) && hivMemberObject.familyHead == hivMemberObject.baseEntityId) {
             findViewById<View>(R.id.hiv_family_head).visibility = View.VISIBLE
