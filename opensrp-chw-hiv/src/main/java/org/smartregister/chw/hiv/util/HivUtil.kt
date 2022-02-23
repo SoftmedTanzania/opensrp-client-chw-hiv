@@ -86,7 +86,7 @@ object HivUtil : KoinComponent {
         activity: Activity, callView: BaseHivClientCallDialogContract.View?, phoneNumber: String?
     ): Boolean = when {
         ContextCompat.checkSelfPermission(
-            activity as Context, Manifest.permission.READ_PHONE_STATE
+            activity as Context, Manifest.permission.READ_SMS
         ) != PackageManager.PERMISSION_GRANTED
         -> { // set a pending call execution request
             if (callView != null) {
@@ -98,7 +98,7 @@ object HivUtil : KoinComponent {
                     }
             }
             ActivityCompat.requestPermissions(
-                activity, arrayOf(Manifest.permission.READ_PHONE_STATE),
+                activity, arrayOf(Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_SMS),
                 PermissionUtils.PHONE_STATE_PERMISSION_REQUEST_CODE
             )
             false
