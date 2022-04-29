@@ -11,7 +11,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
-import android.telephony.TelephonyManager
 import android.text.Html
 import android.text.Spanned
 import android.widget.Toast
@@ -98,15 +97,14 @@ object HivUtil : KoinComponent {
                     }
             }
             ActivityCompat.requestPermissions(
-                activity, arrayOf(Manifest.permission.READ_PHONE_STATE,Manifest.permission.READ_SMS),
+                activity,
+                arrayOf(Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_SMS),
                 PermissionUtils.PHONE_STATE_PERMISSION_REQUEST_CODE
             )
             false
         }
         else -> {
-            if ((activity.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager).line1Number
-                == null
-            ) {
+            if (isIntentAvailable(activity, Intent.ACTION_DIAL)) {
                 Timber.i("No dial application so we launch copy to clipboard...")
                 val clipboard =
                     activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -200,6 +198,16 @@ object HivUtil : KoinComponent {
             return context.resources.getString(R.string.sex_female)
         }
         return ""
+    }
+
+    private fun isIntentAvailable(context: Context, action: String?): Boolean {
+        val packageManager = context.packageManager
+        val intent = Intent(action)
+        val resolveInfo: List<*> = packageManager.queryIntentActivities(
+            intent,
+            PackageManager.MATCH_DEFAULT_ONLY
+        )
+        return resolveInfo.size > 0
     }
 
 }
