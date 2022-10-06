@@ -72,7 +72,7 @@
     <string name="hiv_visit_edit">hariri</string>
     <string name="last_visit">mara ya mwisho kumtembelea</string>
     <string name="view_hiv_registration">Angalia rejista ya VVU</string>
-    <string name="last_visit_n_days_ago">hudhurio la mwisho %1$s zilizopita</string>
+    <string name="last_visit_n_days_ago">Hudhurio la mwisho %1$s zilizopita</string>
     <string name="less_than_twenty_four">chini ya masaa 24</string>
     <string name="hiv_upcoming_visit"><![CDATA[%1$s 1 kufuwatia (%2$s)<font color=#7f7f7f></b> ]]></string>
     <string name="hiv_service_due"><![CDATA[%1$s <font color=#000000>zimepita (%2$s)</font></b>]]></string>

@@ -43,7 +43,7 @@ open class BaseHivRegisterFragmentPresenter(
     }
 
     override fun initializeQueries(mainCondition: String) {
-        val tableName = Constants.Tables.HIV
+        val tableName = getMainTable()
         val condition =
             if (StringUtils.trim(getMainCondition()) == "") mainCondition else getMainCondition()
         val countSelect = model.countSelect(tableName, condition)
