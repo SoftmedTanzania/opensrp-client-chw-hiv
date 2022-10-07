@@ -25,7 +25,7 @@ open class BaseHivRegisterFragmentPresenter(
     override fun getMainCondition() = ""
 
     override fun getDefaultSortQuery() =
-        Constants.Tables.HIV + "." + DBConstants.Key.HIV_REGISTRATION_DATE + " DESC "
+        getMainTable() + "." + DBConstants.Key.HIV_REGISTRATION_DATE + " DESC "
 
     override fun processViewConfigurations() {
         if (StringUtils.isBlank(viewConfigurationIdentifier)) {
@@ -67,7 +67,7 @@ open class BaseHivRegisterFragmentPresenter(
     override fun getMainTable() = Constants.Tables.HIV
 
     override fun getDueFilterCondition() =
-        "${Constants.Tables.HIV}.${DBConstants.Key.CLIENT_HIV_STATUS_DURING_REGISTRATION} = '${Constants.HivStatus.UNKNOWN}'"
+        "${getMainTable()}.${DBConstants.Key.CLIENT_HIV_STATUS_DURING_REGISTRATION} = '${Constants.HivStatus.UNKNOWN}'"
 
     init {
         config = model.defaultRegisterConfiguration()!!
