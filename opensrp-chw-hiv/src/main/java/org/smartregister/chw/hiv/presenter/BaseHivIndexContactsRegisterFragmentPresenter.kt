@@ -10,7 +10,14 @@ import org.smartregister.configurableviews.model.View
 import java.lang.ref.WeakReference
 import java.util.*
 
-open class BaseHivRegisterFragmentPresenter(
+/**
+ * Created by cozej4 on 2021-07-13.
+ *
+ * @cozej4 https://github.com/cozej4
+ *
+ * This is the presenter for  [org.smartregister.chw.hiv.fragment.BaseHivIndexContactsRegisterFragment]
+ */
+open class BaseHivIndexContactsRegisterFragmentPresenter(
     view: BaseHivRegisterFragmentContract.View,
     protected var model: BaseHivRegisterFragmentContract.Model,
     protected var viewConfigurationIdentifier: String?
@@ -25,18 +32,21 @@ open class BaseHivRegisterFragmentPresenter(
     override fun getMainCondition() = ""
 
     override fun getDefaultSortQuery() =
-        getMainTable() + "." + DBConstants.Key.HIV_REGISTRATION_DATE + " DESC "
+        getMainTable() + "." + DBConstants.Key.HIV_INDEX_REGISTRATION_DATE + " DESC "
 
     override fun processViewConfigurations() {
         if (StringUtils.isBlank(viewConfigurationIdentifier)) {
             return
         }
+
         val viewConfiguration =
             model.getViewConfiguration(viewConfigurationIdentifier)
+
         if (viewConfiguration != null) {
             config = viewConfiguration.metadata as RegisterConfiguration
             visibleColumns = model.getRegisterActiveColumns(viewConfigurationIdentifier)!!
         }
+
         if (config.searchBarText != null && getView() != null) {
             getView()?.updateSearchBarHint(config.searchBarText)
         }
@@ -64,10 +74,10 @@ open class BaseHivRegisterFragmentPresenter(
 
     override fun searchGlobally(s: String) = Unit
 
-    override fun getMainTable() = Constants.Tables.HIV
+    override fun getMainTable() = Constants.Tables.HIV_INDEX
 
     override fun getDueFilterCondition() =
-        "${getMainTable()}.${DBConstants.Key.CLIENT_HIV_STATUS_DURING_REGISTRATION} = '${Constants.HivStatus.UNKNOWN}'"
+        "${getMainTable()}.${DBConstants.Key.IS_CLOSED} = 0"
 
     init {
         config = model.defaultRegisterConfiguration()!!

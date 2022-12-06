@@ -72,7 +72,7 @@
     <string name="hiv_visit_edit">hariri</string>
     <string name="last_visit">mara ya mwisho kumtembelea</string>
     <string name="view_hiv_registration">Angalia rejista ya VVU</string>
-    <string name="last_visit_n_days_ago">hudhurio la mwisho %1$s zilizopita</string>
+    <string name="last_visit_n_days_ago">Hudhurio la mwisho %1$s zilizopita</string>
     <string name="less_than_twenty_four">chini ya masaa 24</string>
     <string name="hiv_upcoming_visit"><![CDATA[%1$s 1 kufuwatia (%2$s)<font color=#7f7f7f></b> ]]></string>
     <string name="hiv_service_due"><![CDATA[%1$s <font color=#000000>zimepita (%2$s)</font></b>]]></string>
@@ -93,7 +93,7 @@
     <string name="hiv_visit_day_overdue">%ssiku zilizopitiliza toka hudhurio lililotakiwa</string>
     <string name="hiv_visit_day_overdue_today">leo ndio siku ya hudhurio</string>
     <string name="successful_registration">Umefanyikiwa kumsajili mteja wa VVU</string>
-    <string name="successful_visit">Umefanukiwa kumtembelea mteja wa VVU</string>
+    <string name="successful_visit">Umefanikiwa kumtembelea mteja wa VVU</string>
     <string name="form_not_saved">Fomu haijahifadhiwa</string>
 
     <string name="phone_not_provided">Numba ya simu haijatolewa</string>
@@ -105,4 +105,41 @@
     <string name="fill_followup_form">Jaza fomu ya ufatiliyaji</string>
     <string name="view_profile">angalia taarifa</string>
     <string name="separator">- {0}</string>
+    <string name="hiv_index_clients_contacts">Washirika wa ngono/wakujidunga</string>
+    <string name="hiv_community_followup_clients">Wateja wa kuwafuatilia</string>
+    <string name="hiv_return_to_index_contacts_page">Rudi kwenye orodha ya washirika wa ngono/wakujidunga</string>
+    <string name="record_index_contact_followup">Rekodi ufuatiliaji wa washirika wa ngono/wakujidunga</string>
+    <string name="index_contact_visit_done">Ufuatiliaji wa Mshirika wa ngono/wakujidunga umekamilika</string>
+    <string name="successful_hiv_registration">Mteja amesajiliwa</string>
+    <string name="followup_date">tarehe ya ufuatiliaji</string>
+    <string name="hiv_community_followup_referral_issued">Rufaa ya Mshirika wa ngono/wakujidunga kwenda kwa mtoa huduma wa afya ngazi ya jamii imekamilika</string>
+    <string name="hiv_negative_status">Mteja asiya na VVU</string>
+    <string name="hiv_positive_status">Mteja mwenye VVU</string>
+    <string name="hiv_positive_status_on_medication">Mteja mwenye VVU aliyeanza dawa</string>
+    <string name="form_saved">Fomu imehifadhiwa</string>
+    <string name="hiv_community_followup_feedback_saved">Fomu ya ufuatiliaji imehifadhiwa</string>
+    <string name="hiv_outcome_saved">Matokeo ya matibabu yamehifadhiwa</string>
+    <string name="go_to_index_client_contact_list">Fungua orodha wa washirika wa ngono/wakujidunga</string>
+    <string name="index_client_has_registered_contacts">Mteja ana washirika wa ngono/wakujidunga</string>
+    <string name="client_was_not_tested">Mteja hakupimwa VVU</string>
+    <string name="register_contacts">Orodhesha Washirika</string>
+    <string name="associated_index_client">" Mteja mwenye VVU anayehusishwa"</string>
+    <string name="index_client_re_elicit">Mteja anatakiwa kutaja washirika wengine</string>
+    <string name="index_contact_community_followup_referral_notification_message">Ujumbe: %1$s</string>
+
+    <!--    Sex-->
+    <string name="sex_male">Me</string>
+    <string name="sex_female">Ke</string>
+
+    <!--Index Contacts Relationships    -->
+    <string name="index_contact_sexual_partner">Mshirika wa ngono</string>
+    <string name="index_contact_needle_sharing_partner">Needle Sharing partner</string>
+    <string name="index_contact_biological_mother">Biological Mother</string>
+    <string name="index_contact_biological_father">Biological Father</string>
+    <string name="index_contact_biological_child_under_15">Mtoto wa kuzaa chini ya miaka 15</string>
+    <string name="index_contact_siblings_under_15">Ndugu wa damu chini ya miaka 15</string>
+    <string name="cbhs_follow_up_visit">Ufatiliaji wa VVU</string>
+    <string name="client_followup_status_deceased">Amefariki</string>
+    <string name="client_followup_status_qualified_from_service">Amemaliza huduma</string>
+
 </resources>

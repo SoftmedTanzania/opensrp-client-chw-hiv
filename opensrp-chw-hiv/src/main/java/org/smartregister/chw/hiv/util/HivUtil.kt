@@ -11,7 +11,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Build
-import android.telephony.TelephonyManager
 import android.text.Html
 import android.text.Spanned
 import android.widget.Toast
@@ -21,12 +20,14 @@ import com.google.gson.Gson
 import org.apache.commons.lang3.StringUtils
 import org.json.JSONObject
 import org.koin.core.KoinComponent
+import org.opensrp.api.constants.Gender
 import org.smartregister.chw.anc.domain.MemberObject
 import org.smartregister.chw.hiv.HivLibrary
 import org.smartregister.chw.hiv.R
 import org.smartregister.chw.hiv.contract.BaseHivClientCallDialogContract
 import org.smartregister.chw.hiv.contract.BaseHivClientCallDialogContract.Dialer
 import org.smartregister.chw.hiv.custom_views.ClipboardDialog
+import org.smartregister.chw.hiv.domain.HivIndexContactObject
 import org.smartregister.chw.hiv.domain.HivMemberObject
 import org.smartregister.clientandeventmodel.Event
 import org.smartregister.repository.BaseRepository
@@ -84,7 +85,7 @@ object HivUtil : KoinComponent {
         activity: Activity, callView: BaseHivClientCallDialogContract.View?, phoneNumber: String?
     ): Boolean = when {
         ContextCompat.checkSelfPermission(
-            activity as Context, Manifest.permission.READ_PHONE_STATE
+            activity as Context, Manifest.permission.CALL_PHONE
         ) != PackageManager.PERMISSION_GRANTED
         -> { // set a pending call execution request
             if (callView != null) {
@@ -96,15 +97,14 @@ object HivUtil : KoinComponent {
                     }
             }
             ActivityCompat.requestPermissions(
-                activity, arrayOf(Manifest.permission.READ_PHONE_STATE),
+                activity,
+                arrayOf(Manifest.permission.CALL_PHONE),
                 PermissionUtils.PHONE_STATE_PERMISSION_REQUEST_CODE
             )
             false
         }
         else -> {
-            if ((activity.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager).line1Number
-                == null
-            ) {
+            if (isIntentAvailable(activity, Intent.ACTION_DIAL)) {
                 Timber.i("No dial application so we launch copy to clipboard...")
                 val clipboard =
                     activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -155,6 +155,31 @@ object HivUtil : KoinComponent {
         return nameBuilder.toString()
     }
 
+    /**
+     * Used to concantinate names and return the clients full names
+     */
+    @JvmStatic
+    fun getFullName(hivIndexContactObject: HivIndexContactObject): String? {
+        val nameBuilder = StringBuilder()
+        val firstName = hivIndexContactObject.firstName
+        val lastName = hivIndexContactObject.lastName
+        val middleName = hivIndexContactObject.middleName
+        when {
+            StringUtils.isNotBlank(firstName) -> {
+                nameBuilder.append(firstName)
+            }
+            StringUtils.isNotBlank(middleName) -> {
+                nameBuilder.append(" ")
+                nameBuilder.append(middleName)
+            }
+            StringUtils.isNotBlank(lastName) -> {
+                nameBuilder.append(" ")
+                nameBuilder.append(lastName)
+            }
+        }
+        return nameBuilder.toString()
+    }
+
     @JvmStatic
     fun toMember(memberObject: HivMemberObject): MemberObject? {
         val res = MemberObject()
@@ -164,6 +189,25 @@ object HivUtil : KoinComponent {
         res.middleName = memberObject.middleName
         res.dob = memberObject.age
         return res
+    }
+
+    fun getGenderTranslated(context: Context, gender: String): String? {
+        if (gender.equals(Gender.MALE.toString(), ignoreCase = true)) {
+            return context.resources.getString(R.string.sex_male)
+        } else if (gender.equals(Gender.FEMALE.toString(), ignoreCase = true)) {
+            return context.resources.getString(R.string.sex_female)
+        }
+        return ""
+    }
+
+    private fun isIntentAvailable(context: Context, action: String?): Boolean {
+        val packageManager = context.packageManager
+        val intent = Intent(action)
+        val resolveInfo: List<*> = packageManager.queryIntentActivities(
+            intent,
+            PackageManager.MATCH_DEFAULT_ONLY
+        )
+        return resolveInfo.size > 0
     }
 
 }

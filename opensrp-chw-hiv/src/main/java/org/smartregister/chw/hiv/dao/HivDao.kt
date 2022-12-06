@@ -4,7 +4,6 @@ import android.database.Cursor
 import org.smartregister.chw.anc.domain.Visit
 import org.smartregister.chw.hiv.domain.HivAlertObject
 import org.smartregister.chw.hiv.domain.HivMemberObject
-import org.smartregister.chw.hiv.util.Constants
 import org.smartregister.chw.hiv.util.DBConstants
 import org.smartregister.dao.AbstractDao
 import org.smartregister.dao.AbstractDao.DataMap
@@ -46,6 +45,12 @@ object HivDao : AbstractDao() {
                 getCursorValue(cursor, DBConstants.Key.CTC_NUMBER, "")
             memberObject.cbhsNumber =
                 getCursorValue(cursor, DBConstants.Key.CBHS_NUMBER, "")
+            memberObject.tbNumber =
+                getCursorValue(cursor, DBConstants.Key.TB_NUMBER, "")
+            memberObject.matNumber =
+                getCursorValue(cursor, DBConstants.Key.MAT_NUMBER, "")
+            memberObject.rchNumber =
+                getCursorValue(cursor, DBConstants.Key.RCH_NUMBER, "")
             memberObject.clientHivStatusDuringRegistration =
                 getCursorValue(
                     cursor,
@@ -83,6 +88,8 @@ object HivDao : AbstractDao() {
                 getCursorValue(cursor, DBConstants.Key.REASONS_FOR_ISSUING_COMMUNITY_REFERRAL, "")
             memberObject.comment =
                 getCursorValue(cursor, DBConstants.Key.COMMENTS, "")
+            memberObject.clientFollowupStatus =
+                getCursorValue(cursor, DBConstants.Key.CLIENT_FOLLOWUP_STATUS, "")
             memberObject.isClosed =
                 getCursorIntValue(cursor, DBConstants.Key.IS_CLOSED, 0) == 1
             var familyHeadName =
